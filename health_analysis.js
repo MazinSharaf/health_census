@@ -145,6 +145,21 @@ function generateReport() {
     // generateReport Loops and HTML Updates SE
 }
 // generateReport Function Being Defined SE
+
+// searchCondition Function Being Defined SS
+function searchCondition() {
+    // searchCondition Variables Being Defined SS
+    const input = document.getElementById(
+        'conditionInput'
+    ).value.toLowerCase(); // Retrieves the value of the element with the id conditionInput and turns it into all lowercase and then assigns it to the variable input
+
+    const resultDiv = document.getElementById(
+        'result'
+    ); // Retrieves the element with the id result and assigns it to the variable resultDiv and the element with that id is a div element and it is for the section where the results come in for the user
+    // searchCondition Variables Being Defined SE
+    resultDiv.innerHTML = '';
+}
+// searchCondition Function Being Defined SE
 // Functions Being Defined SE
 
 addPatientButton.addEventListener("click", addPatient); // Makes it so when the addPatientButton is clicked the patient is added with inputs
