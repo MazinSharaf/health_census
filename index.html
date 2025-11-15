@@ -4,15 +4,15 @@
         <!-- Legend:            -->
         <!-- SS = Section Start -->
         <!-- SE = Section End   -->
-        <meta charset="UTF-8">
+        <meta charset="UTF-8"> <!-- Tells page to interpret text as UTF-8 encoding -->
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Decides how the website should be viewed on different devices -->
 
         <title>
-            Health Analysis Data
+            Health Analysis Data <!-- Title for the website -->
         </title>
 
-        <link rel="stylesheet" href="./health_analysis.css">
+        <link rel="stylesheet" href="./health_analysis.css"> <!-- CSS from External File -->
     </head>
     
     <body>
@@ -47,8 +47,10 @@
             </ul> <!-- Creates an unordered list so that the items inside are aligned and organized but does not have any numbering -->
         </nav>
         <!-- Navigation SE -->
-
+        
+        <!-- Container SS -->
         <div class="container">
+            <!-- Analysis Form SS -->
             <div class="analysisForm">
                 <h1>
                     Healthcare Data Analysis <!-- Main Header for the form -->
@@ -96,38 +98,40 @@
                     <select id="condition">
                         <option value="">
                             Select Condition
-                        </option>
+                        </option> <!-- Default option selected -->
 
                         <option value="Diabetes">
                             Diabetes
-                        </option>
+                        </option> <!-- Diabetes option given to user -->
 
                         <option value="Thyroid">
                             Thyroid
-                        </option>
+                        </option> <!-- Thyroid option given to user -->
 
                         <option value="High Blood Pressure">
                             High Blood Pressure
-                        </option>
-                    </select>
-                </div>
+                        </option> <!-- High Blood Pressure option given to user-->
+                    </select> <!-- Tells user to select one of the options given to them -->
+                </div> <!-- The divison for the condition input from the user -->
 
                 <button id="addPatient">
                     Add Patient
-                </button>
+                </button> <!-- Button to add the patient with the inputs given -->
                 
                 <h2>
                     Analysis Report
-                </h2>
+                </h2> <!-- Header for report -->
 
-                <div id="report"></div>
+                <div id="report"></div> <!-- Where the report will be put -->
             </div>
+            <!-- Analysis Form SE -->
             
             <div class="searchCondition">
                 <div id="result"></div>
-            </div>
+            </div> <!-- Result given depending on the search condition from user -->
         </div>
+        <!-- Container SE -->
         
-        <script src="./health_analysis.js"></script>
+        <script src="./health_analysis.js"></script> <!-- JavaScript given from external file -->
     </body>
 </html>
