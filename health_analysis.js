@@ -157,9 +157,93 @@ function searchCondition() {
         'result'
     ); // Retrieves the element with the id result and assigns it to the variable resultDiv and the element with that id is a div element and it is for the section where the results come in for the user
     // searchCondition Variables Being Defined SE
-    resultDiv.innerHTML = '';
+    resultDiv.innerHTML = ''; // Sets the inside of the result div HTML to nothing
+
+    // searchCondition Fetch SS
+    fetch(
+        'health_analysis.json'
+    )
+        .then(
+            response => response.json()
+        ) // When the JSON file is fetched then turn the response into a JSON format
+
+        .then(
+            data => {
+                const condition = data.conditions.find(
+                    item => item.name.toLowerCase() === input
+                ); // Turn the item into lowercase and searches for the item that is the same as the input
+
+                // Conditional Code SS
+                if (
+                    condition // If there is a match then run the following code
+                ) {
+                    // searchCondition if Variables Being Defined SS
+                    const symptoms = condition.symptoms.join(
+                        ', '
+                    ); // Joins the symptoms of the condition by joining it with a comma and assigning it to the variable symptoms
+
+                    const prevention = condition.prevention.join(
+                        ', '
+                    ); // Joins the preventions of the condition by joining it with a comma and assigning it to the variable prevention
+
+                    const treatment = condition.treatment; // Takes the treatment of the condition and assigns it to the variable treatment
+                    // searchCondition if Variables Being Defined SE
+
+                    // HTML Changes SS
+                    resultDiv.innerHTML += `
+                    <h2>${condition.name}</h2>
+
+                    <img src="${condition.imagesrc}" alt="hjh">
+
+                    <p>
+                        <strong>
+                            Symptoms:
+                        </strong>
+                        ${symptoms}
+                    </p>
+                    
+                    <p>
+                        <strong>
+                            Prevention:
+                        </strong>
+                        ${prevention}
+                    </p>
+
+                    <p>
+                        <strong>
+                            Treatment:
+                        </strong>
+                        ${treatment}
+                    </p>
+                    `;
+                    // HTML Changes SE
+                } else {
+                    resultDiv.innerHTML = 'Condition not found.'; // If the condition is not found then replace the inside HTML of the result div with the following text
+                }
+                // Conditional Code SE
+            }
+        ) // After the response is turned into a JSON format then turn the data into code that searches for the condition that matches the user input and if it is true then run some code otherwise run another piece of code
+
+        .catch(
+            error => {
+                console.error(
+                    'Error:',
+                    error
+                );
+
+                resultDiv.innerHTML = `An error occured while fetching data.`;
+            }
+        ) // If any error has occurred then turn the error into a console error and a HTML update for the result div
+    // searchCondition Fetch SE
 }
 // searchCondition Function Being Defined SE
 // Functions Being Defined SE
 
-addPatientButton.addEventListener("click", addPatient); // Makes it so when the addPatientButton is clicked the patient is added with inputs
+addPatientButton.addEventListener(
+    "click", 
+    addPatient
+); // Makes it so when the addPatientButton is clicked the patient is added with inputs
+btnSearch.addEventListener(
+    "click",
+    searchCondition
+); // Makes it so when the btnSearch is clicked the condition is searched for with input
