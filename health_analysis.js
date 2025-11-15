@@ -27,7 +27,7 @@ function addPatient() {
     ).value; // Retrieves the value of the element with the id name and assigns it to the variable name and the id belongs to an input element for the user to give the name of the patient
 
     const gender = document.querySelector(
-        'input=[name="gender"]:checked'
+        'input[name="gender"]:checked'
     ); // Retrieves the gender that the user has selected and assigns it to the variable gender and it belongs to a radio type input element for the user to give the gender of the patient
 
     const age = document.getElementById(
