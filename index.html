@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Legend:            -->
+        <!-- SS = Section Start -->
+        <!-- SE = Section End   -->
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>
+            Health Analysis Data
+        </title>
+
+        <link rel="stylesheet" href="./health_analysis.css">
+    </head>
+    
+    <body>
+        <!-- Navigation SS -->
+        <nav>
+            <h1>
+                Health Analysis Census <!-- Main Header -->
+            </h1>
+
+            <ul>
+                <li>
+                    <a href="./index.html" id="home">
+                        Home
+                    </a> <!-- Brings back to home page when clicked -->
+                </li>
+
+                <li>
+                    <a href="./health_contact.html" id="contact">
+                        Contact Us
+                    </a> <!-- Brings back to contact page when clicked-->
+                </li>
+
+                <li>
+                    <input type="text" id="conditionInput" placeholder="Enter a health condition"> <!-- User enters their health condition -->
+                </li>
+
+                <li>
+                    <button id="btnSearch">
+                        Search
+                    </button> <!-- Search Button -->
+                </li>
+            </ul> <!-- Creates an unordered list so that the items inside are aligned and organized but does not have any numbering -->
+        </nav>
+        <!-- Navigation SE -->
+
+        <div class="container">
+            <div class="analysisForm">
+                <h1>
+                    Healthcare Data Analysis <!-- Main Header for the form -->
+                </h1>
+
+                <div>
+                    <label for="name">
+                        Name
+                    </label> <!-- Creates a label for the name input -->
+                    
+                    <input type="text" id="name"> <!-- Gets input from the user for their name -->
+                </div> <!-- The division for the name input from the user -->
+
+                <div>
+                    <label>
+                        Gender
+                    </label> <!-- Creates a label for the gender input -->
+
+                    <label for="male">
+                        Male
+                    </label>    <!-- Creates a label for the male input -->
+
+                    <input type="radio" name="gender" id="male" value="Male"> <!-- Creates a radio input that has the value Male -->
+
+                    <label for="female">
+                        Female
+                    </label> <!-- Creates a label for the female input -->
+
+                    <input type="radio" name="gender" id="female" value="Female"> <!-- Creates a radio input that has the value Male -->
+                </div> <!-- This division makes it so that the user can only select one option when selecting their gender -->
+                
+                <div>
+                    <label for="age">
+                        Age
+                    </label> <!-- Creates a label for the age input -->
+
+                    <input type="number" id="age"> <!-- Gets the age from the user with a number type input -->
+                </div> <!-- The division for the age input from the user -->
+
+                <div>
+                    <label for="condition">
+                        Condition
+                    </label> <!-- Creates a label for the condition input -->
+
+                    <select id="condition">
+                        <option value="">
+                            Select Condition
+                        </option>
+
+                        <option value="Diabetes">
+                            Diabetes
+                        </option>
+
+                        <option value="Thyroid">
+                            Thyroid
+                        </option>
+
+                        <option value="High Blood Pressure">
+                            High Blood Pressure
+                        </option>
+                    </select>
+                </div>
+
+                <button id="addPatient">
+                    Add Patient
+                </button>
+                
+                <h2>
+                    Analysis Report
+                </h2>
+
+                <div id="report"></div>
+            </div>
+            
+            <div class="searchCondition">
+                <div id="result"></div>
+            </div>
+        </div>
+        
+        <script src="./health_analysis.js"></script>
+    </body>
+</html>
