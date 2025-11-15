@@ -83,8 +83,68 @@ function resetForm() {
 // generateReport Function Being Defined SS
 function generateReport() {
     // generateReport Variables Being Defined SS
-    const numPatients = patients.length;
+    const numPatients = patients.length; // Takes the length of the patients array and assigns it to the variable numPatients
+
+    const conditionsCount = {
+        Diabetes: 0,
+        Thyroid: 0,
+        "High Blood Pressure": 0,
+    } // Sets the count of each condition to zero and assigns it to the object conditionsCount
+
+    const genderConditionsCount = {
+        Male: {
+            Diabetes: 0,
+            Thyroid: 0,
+            "High Blood Pressure": 0,
+        }, // Sets the count of each condition for males to zero and assigns it to the key Male
+
+        Female: {
+            Diabetes: 0,
+            Thyroid: 0,
+            "High Blood Pressure": 0,
+        } // Sets the count of each condition fo females to zero and assigns it to the key Female
+    }; // Sets the condition count for each gender to zero and assigns it to the object genderConditionsCount 
     // generateReport Variables Being Defined SE
+
+    // generateReport Loops and HTML Updates SS
+    report.innerHTML = `Number of patients: ${numPatients}<br><br>`; // Number of patients for the report
+    for (
+        const patient of patients // For each patient in the array of patients run the following code
+    ) {
+        conditionsCount[
+            patient.condition
+        ]++; // Increases the value of the patient condition by one
+
+        genderConditionsCount[
+            patient.gender
+        ][
+            patient.condition
+        ]++; // Increases the value of the count of the gender of the patient by one
+    } // Keeps track of the patient condition count and gender patient condition count
+
+    report.innerHTML += `Conditions Breakdown:<br>`; // Conditions section for the report
+    for (
+        const condition in conditionsCount // For each condition in the conditionsCount object
+    ) {
+        report.innerHTML += `${condition}: ${conditionsCount[condition]}<br>`; // Changes the HTML of the report to include the count of the condition
+    } // Updates the HTML file to include the count of the condition for each condition in the conditionsCount object
+
+    report.innerHTML += `<br>Gender-Based Conditions:<br>`; // Gender based conditions section for the report
+    for (
+        const gender in genderConditionsCount // For each gender in the genderConditionsCount object
+    ) {
+        report.innerHTML += `${gender}:<br>`; // Adds the gender of the patient to the report
+        for (
+            const condition in genderConditionsCount[
+                gender
+            ] // For each condition in the specific gender
+        ) {
+            report.innerHTML += `&nbsp;&nbsp;${condition}: ${genderConditionsCount[gender][condition]}<br>`; // Updates the HTML to include the amount of the condition for that gender
+        }
+    } // Updates the HTML file to include the gender for each gender in the genderConditionsCount object
+    // generateReport Loops and HTML Updates SE
 }
 // generateReport Function Being Defined SE
 // Functions Being Defined SE
+
+addPatientButton.addEventListener("click", addPatient); // Makes it so when the addPatientButton is clicked the patient is added with inputs
